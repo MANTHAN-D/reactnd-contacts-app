@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 class ListContacts extends Component {
   static propTypes = {
     contacts: PropTypes.array.isRequired,
-    onDeleteContact: PropTypes.func.isRequired
+    onDeleteContact: PropTypes.func.isRequired,
+    onNavigate: PropTypes.func.isRequired
   }
 
   state = {
@@ -39,6 +40,11 @@ class ListContacts extends Component {
             placeholder="Search Contacts"
             value={query}
             onChange={event => this.updateQuery(event.target.value)}
+          />
+          <a
+            href="#create"
+            onClick={this.props.onNavigate}
+            className="add-contact"
           />
         </div>
         <ol className="contact-list">
